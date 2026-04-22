@@ -2,7 +2,6 @@ import React, { useState, useRef } from 'react';
 import { useApp } from '../App';
 import { Plus, Pin, Trash2, X, UploadCloud } from 'lucide-react';
 import { format } from 'date-fns';
-import { marked } from 'marked';
 
 function NoteEditor({ note, onSave, onClose }) {
   const [form, setForm] = useState(note || { title: '', content: '', tags: [], pinned: false });
@@ -72,7 +71,6 @@ export default function Notes() {
     const reader = new FileReader();
     reader.onload = async (e) => {
       const markdown = e.target.result;
-      const html = marked.parse(markdown);
 
       // Basic extraction: title from first heading, content from rest, tags from #hashtags
       const titleMatch = markdown.match(/^(#+)\s(.+)/);
