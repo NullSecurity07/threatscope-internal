@@ -1,7 +1,7 @@
 import React from 'react';
 import { useApp } from '../App';
 import { format } from 'date-fns';
-import { AlertCircle, TrendingUp, CheckSquare, Users, Zap } from 'lucide-react';
+import { AlertCircle, TrendingUp, CheckSquare, Users } from 'lucide-react';
 
 const STAGE_ORDER = ['Cold','Contacted','Call Scheduled','PoV','Pilot','Contract'];
 
@@ -11,7 +11,6 @@ export default function Dashboard() {
 
   const todayTasks = tasks.filter(t => t.status !== 'Done');
   const criticalTasks = tasks.filter(t => t.priority === 'Critical' && t.status !== 'Done');
-  const activeProspects = prospects.filter(p => p.stage !== 'Cold');
   const pendingInbox = inbox.filter(i => !i.converted);
 
   const stageCounts = STAGE_ORDER.reduce((acc, s) => {

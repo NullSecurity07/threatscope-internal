@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useApp } from '../App';
-import { Plus, FileText, Trash2, Edit2 } from 'lucide-react';
+import { Plus, Trash2, Edit2 } from 'lucide-react';
 import { format } from 'date-fns';
 
 const TYPES = ['Contract', 'NDA', 'Proposal', 'Report', 'Reference', 'Other'];

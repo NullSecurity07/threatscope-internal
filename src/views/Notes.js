@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useApp } from '../App';
-import { Plus, Pin, Trash2, Edit2, X } from 'lucide-react';
+import { Plus, Pin, Trash2, X } from 'lucide-react';
 import { format } from 'date-fns';
 
 function NoteEditor({ note, onSave, onClose }) {
