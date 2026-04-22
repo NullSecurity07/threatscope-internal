@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useApp } from '../App';
-import { Plus, Pin, Trash2, X } from 'lucide-react';
+import { Plus, Pin, Trash2, X, UploadCloud } from 'lucide-react';
 import { format } from 'date-fns';
+import { marked } from 'marked';
 
 function NoteEditor({ note, onSave, onClose }) {
   const [form, setForm] = useState(note || { title: '', content: '', tags: [], pinned: false });
@@ -40,6 +41,7 @@ export default function Notes() {
   const { data, update, uuidv4 } = useApp();
   const [modal, setModal] = useState(null);
   const [search, setSearch] = useState('');
+  const fileInputRef = useRef(null);
 
   const notes = data.notes;
   const filtered = notes.filter(n =>
@@ -62,6 +64,36 @@ export default function Notes() {
 
   const del = (id) => update('notes', notes.filter(n => n.id !== id));
   const togglePin = (note) => update('notes', notes.map(n => n.id === note.id ? { ...n, pinned: !n.pinned } : n));
+
+  const handleFileUpload = (event) => {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = async (e) => {
+      const markdown = e.target.result;
+      const html = marked.parse(markdown);
+
+      // Basic extraction: title from first heading, content from rest, tags from #hashtags
+      const titleMatch = markdown.match(/^(#+)\s(.+)/);
+      const title = titleMatch ? titleMatch[2] : file.name.replace(/\.md$/, '');
+      const content = markdown; // Store full markdown as content
+      const tags = [...markdown.matchAll(/#(\w+)/g)].map(match => match[1]);
+
+      const newNote = {
+        id: uuidv4(),
+        title,
+        content,
+        tags: [...new Set(tags)], // Remove duplicate tags
+        pinned: false,
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+      };
+      update('notes', [...notes, newNote]);
+      fileInputRef.current.value = ''; // Clear the file input
+    };
+    reader.readAsText(file);
+  };
 
   const NoteCard = ({ note }) => (
     <div className="card" style={{ cursor: 'pointer', transition: 'border-color 0.18s' }} onClick={() => setModal(note)}>
@@ -90,7 +122,20 @@ export default function Notes() {
     <div className="view">
       <div className="view-header">
         <div><div className="view-title">Notes</div><div className="view-sub">{notes.length} notes · meeting notes, frameworks, context</div></div>
-        <button className="btn btn-primary" onClick={() => setModal('new')}><Plus size={14}/> New note</button>
+        <div style={{ display: 'flex', gap: 10 }}>
+          <input
+            type="file"
+            ref={fileInputRef}
+            onChange={handleFileUpload}
+            style={{ display: 'none' }}
+            accept=".md"
+            data-testid="obsidian-file-input"
+          />
+          <button className="btn btn-secondary" onClick={() => fileInputRef.current.click()}>
+            <UploadCloud size={14}/> Import from Obsidian
+          </button>
+          <button className="btn btn-primary" onClick={() => setModal('new')}><Plus size={14}/> New note</button>
+        </div>
       </div>
 
       <input value={search} onChange={e => setSearch(e.target.value)} placeholder="Search notes..." style={{ marginBottom: 20 }} />

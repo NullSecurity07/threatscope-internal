@@ -1,0 +1,166 @@
+{
+  "prospects": [
+    {
+      "id": "c1f8e4d3-c21n-4a8b-9a1f-4a9c8d5b4a6e",
+      "name": "Gaurav Sharma",
+      "company": "SBI Card",
+      "role": "VP Information Security",
+      "stage": "Cold",
+      "sector": "Payment",
+      "lastAction": "LinkedIn outreach sent",
+      "nextAction": "Follow up in 2 weeks",
+      "notes": "Initial contact via LinkedIn. Technically literate. PCI-DSS focus.",
+      "priority": "High",
+      "email": "",
+      "phone": "",
+      "createdAt": "2024-05-15T10:00:00.000Z",
+      "updatedAt": "2024-05-15T10:00:00.000Z"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "c1f8e4d3-c22n-4a8b-9a1f-4a9c8d5b4a6e",
+      "title": "Complete Udyam registration",
+      "description": "30 min on udyamregistration.gov.in. Blocks invoicing.",
+      "status": "Todo",
+      "priority": "Critical",
+      "assignee": "Adithya",
+      "dueDate": "2024-05-16T10:00:00.000Z",
+      "tags": ["business", "legal"],
+      "createdAt": "2024-05-15T10:00:00.000Z"
+    },
+    {
+      "id": "c1f8e4d3-c23n-4a8b-9a1f-4a9c8d5b4a6e",
+      "title": "Production Dockerfile full build",
+      "description": "Bake qwen3:4b + qwen2.5-coder:1.5b into image. Test --network none end-to-end.",
+      "status": "In Progress",
+      "priority": "High",
+      "assignee": "Adithya",
+      "dueDate": "2024-05-22T10:00:00.000Z",
+      "tags": ["engineering"],
+      "createdAt": "2024-05-15T10:00:00.000Z"
+    },
+    {
+      "id": "c1f8e4d3-c24n-4a8b-9a1f-4a9c8d5b4a6e",
+      "title": "Identify 2-3 fresh VP InfoSec targets",
+      "description": "Private banks, NBFCs, payment aggregators. LinkedIn outreach.",
+      "status": "Todo",
+      "priority": "High",
+      "assignee": "Adithya",
+      "dueDate": "2024-05-18T10:00:00.000Z",
+      "tags": ["gtm", "outreach"],
+      "createdAt": "2024-05-15T10:00:00.000Z"
+    },
+    {
+      "id": "c1f8e4d3-c25n-4a8b-9a1f-4a9c8d5b4a6e",
+      "title": "Run Juice Shop Tier 3 full scan",
+      "description": "Non-sandboxed. Full Agent 3/4 LLM deep analysis pass.",
+      "status": "Todo",
+      "priority": "Medium",
+      "assignee": "Adithya",
+      "dueDate": "2024-05-29T10:00:00.000Z",
+      "tags": ["engineering", "demo"],
+      "createdAt": "2024-05-15T10:00:00.000Z"
+    }
+  ],
+  "notes": [
+    {
+      "id": "c1f8e4d3-c26n-4a8b-9a1f-4a9c8d5b4a6e",
+      "title": "Venture Dock Meeting — Filed",
+      "content": "Met with CEO. Impressed by architecture, no technical objections.\n\nVerdict: too early, cybersec program offline, wrong geography.\n\nStanding invitation: contact when raising a funding round or going global.\n\nAction: Do not follow up until first paying client is closed.",
+      "tags": ["investor", "filed"],
+      "pinned": true,
+      "createdAt": "2024-05-15T10:00:00.000Z",
+      "updatedAt": "2024-05-15T10:00:00.000Z"
+    },
+    {
+      "id": "c1f8e4d3-c27n-4a8b-9a1f-4a9c8d5b4a6e",
+      "title": "BFSI Sales Call Framework",
+      "content": "Opening: Air-gap story — 90 seconds, then demo.\n\n\"Every time a bank runs a source code audit, the code goes somewhere. ThreatScope inverts this.\"\n\nDemo: Juice Shop Tier 1/2 — 251 findings, 0 vendor FP.\n\nFraming: Use compliance language. Not CVE numbers.\n\nOne ask: CISO introduction only. Nothing else.",
+      "tags": ["sales", "framework"],
+      "pinned": true,
+      "createdAt": "2024-05-15T10:00:00.000Z",
+      "updatedAt": "2024-05-15T10:00:00.000Z"
+    }
+  ],
+  "templates": [
+    {
+      "id": "c1f8e4d3-c28n-4a8b-9a1f-4a9c8d5b4a6e",
+      "name": "Cold LinkedIn DM — VP InfoSec",
+      "category": "Outreach",
+      "content": "Hi [Name],\n\nYou're dealing with a problem most banks don't talk about publicly: every time a source code audit happens, the code leaves the network.\n\nThreatScope inverts that. Local LLM inference, bundled in Docker, zero egress. Air-gapped from day one.\n\nWe ran it on a 605-file Node.js app — 251 findings, 0 false positives on vendor code. Each finding maps to your RBI Master Direction obligations.\n\nWorth 20 minutes to see what it found?\n\n— Adithya",
+      "createdAt": "2024-05-15T10:00:00.000Z"
+    },
+    {
+      "id": "c1f8e4d3-c29n-4a8b-9a1f-4a9c8d5b4a6e",
+      "name": "Cold Email — BFSI",
+      "category": "Outreach",
+      "content": "Subject: Source code security that stays on your servers — 251 findings, air-gapped\n\nHi [Name],\n\n[Company]'s source code is your most sensitive asset. Every cloud-based scanner is a data sovereignty risk under RBI Master Direction 4.4.\n\nThreatScope is the only AI security scanner that never leaves your network.\n\nWould you be comfortable with a 48-hour Risk Assessment on one of your repos?\n\n— Adithya Poojary\nThreatScope",
+      "createdAt": "2024-05-15T10:00:00.000Z"
+    },
+    {
+      "id": "c1f8e4d3-c30n-4a8b-9a1f-4a9c8d5b4a6e",
+      "name": "48-Hour PoV Proposal",
+      "category": "Sales",
+      "content": "48-Hour Risk Assessment — ThreatScope\n\nProspect: [Company Name]\nContact: [Name, Role]\n\nScope: [Payment Gateway / Auth Service / Mobile Banking API]\nDuration: 48 hours from access grant to report delivery\n\nDeliverables:\n- Risk Snapshot: 3-5 critical business logic findings\n- Compliance mapping: RBI Master Direction 4.x + PCI-DSS 6.5.x\n- Zero-egress verification\n\nPricing: ₹3-5L, credited toward first annual contract.\n\nThreatScope — the only AI security scanner that never leaves your network.",
+      "createdAt": "2024-05-15T10:00:00.000Z"
+    },
+    {
+      "id": "c1f8e4d3-c31n-4a8b-9a1f-4a9c8d5b4a6e",
+      "name": "CISO Objection Responses",
+      "category": "Sales",
+      "content": "Q: What happens to our source code?\nA: Nothing leaves your network. Ever.\n\nQ: How does it compare to SonarQube?\nA: SonarQube catches patterns it was programmed to know. ThreatScope catches business logic flaws.\n\nQ: Are you a registered company?\nA: Sole proprietorship registered.\n\nQ: What's the pricing?\nA: Pilot at ₹3-5L for 3 months, credited toward the annual contract.",
+      "createdAt": "2024-05-15T10:00:00.000Z"
+    }
+  ],
+  "messages": [
+    {
+      "id": "c1f8e4d3-c32n-4a8b-9a1f-4a9c8d5b4a6e",
+      "author": "Adithya",
+      "content": "Phase 1-3 complete. Juice Shop gate passed — 251 findings, 0 vendor FP. Moving to business track. Priority: Udyam registration TODAY.",
+      "channel": "general",
+      "timestamp": "2024-05-15T10:00:00.000Z"
+    },
+    {
+      "id": "c1f8e4d3-c33n-4a8b-9a1f-4a9c8d5b4a6e",
+      "author": "Adithya",
+      "content": "Venture Dock call done. Filed as warm contact. CEO impressed, no technical objections. Wrong geography for current program. Standing invite when raising. Do not follow up until first client closed.",
+      "channel": "general",
+      "timestamp": "2024-05-14T10:00:00.000Z"
+    }
+  ],
+  "docs": [
+    {
+      "id": "c1f8e4d3-c34n-4a8b-9a1f-4a9c8d5b4a6e",
+      "name": "Engagement Contract Template",
+      "type": "Contract",
+      "status": "Draft",
+      "description": "Standard pilot engagement contract. Add liability caps and source code sovereignty clause before first use.",
+      "tags": ["legal", "template"],
+      "createdAt": "2024-05-15T10:00:00.000Z"
+    },
+    {
+      "id": "c1f8e4d3-c35n-4a8b-9a1f-4a9c8d5b4a6e",
+      "name": "NDA Template",
+      "type": "NDA",
+      "status": "Draft",
+      "description": "Mutual NDA for prospect conversations. Governs source code access during 48-hr PoV.",
+      "tags": ["legal"],
+      "createdAt": "2024-05-15T10:00:00.000Z"
+    }
+  ],
+  "inbox": [
+    {
+      "id": "c1f8e4d3-c36n-4a8b-9a1f-4a9c8d5b4a6e",
+      "content": "Follow up with DSCI / NASSCOM for direct CISO access events in Bengaluru / Mumbai.",
+      "converted": false,
+      "createdAt": "2024-05-15T10:00:00.000Z"
+    },
+    {
+      "id": "c1f8e4d3-c37n-4a8b-9a1f-4a9c8d5b4a6e",
+      "content": "Look into CERT-In empaneled audit firms — potential channel partner for BFSI distribution.",
+      "converted": false,
+      "createdAt": "2024-05-15T10:00:00.000Z"
+    }
+  ]
+}
